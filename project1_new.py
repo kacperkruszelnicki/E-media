@@ -686,6 +686,7 @@ def parse_exif_full(exif_bytes):
     # === IFD0 ===
     tags_ifd0, next_ifd = parse_ifd(exif_bytes, endian, offset_ifd0, "IFD0")
 
+    tags_exif = {}
     # === ExifIFD ===
     if 0x8769 in tags_ifd0:
         exif_offset = tags_ifd0[0x8769]
@@ -699,8 +700,8 @@ def parse_exif_full(exif_bytes):
         parse_ifd(exif_bytes, endian, gps_offset, "GPSIFD")
 
     # === InteropIFD ===
-    if 0xA005 in tags_ifd0:
-        interop_offset = tags_ifd0[0xA005]
+    if 0xA005 in tags_exif:
+        interop_offset = tags_exif[0xA005]
         print(f"\nZnaleziono InteropIFD pod offsetem: {interop_offset}")
         parse_ifd(exif_bytes, endian, interop_offset, "InteropIFD")
 
