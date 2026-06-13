@@ -10,7 +10,7 @@ from Crypto.Cipher import PKCS1_OAEP
 import math
 
 # RSA
-def generate_keys(bits=1024):# zmiana z 16
+def generate_keys(bits=1024):
     p = getPrime(bits)
     q = getPrime(bits)
 
