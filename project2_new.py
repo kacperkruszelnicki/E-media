@@ -438,17 +438,17 @@ if __name__ == "__main__":
     print("Public:", public)
     print("Private:", private)
 
-    encrypt_png(INPUT, "ecb.png", public, "ECB", True, 115)
-    encrypt_png(INPUT, "cbc.png", public, "CBC", True, 115)
+    encrypt_png(INPUT, "ecb.png", public, "ECB", True)
+    encrypt_png(INPUT, "cbc.png", public, "CBC", True)
 
-    decrypt_png("ecb.png", "ecb_dec.png", private, "ECB", True, 115)
-    decrypt_png("cbc.png", "cbc_dec.png", private, "CBC", True, 115)
+    decrypt_png("ecb.png", "ecb_dec.png", private, "ECB", True)
+    decrypt_png("cbc.png", "cbc_dec.png", private, "CBC", True)
 
-    encrypt_png(INPUT, "ecb_raw.png", public, "ECB", False, 115)
-    encrypt_png(INPUT, "cbc_raw.png", public, "CBC", False, 115)
+    encrypt_png(INPUT, "ecb_raw.png", public, "ECB", False)
+    encrypt_png(INPUT, "cbc_raw.png", public, "CBC", False)
 
-    decrypt_png("ecb_raw.png", "ecb_raw_dec.png", private, "ECB", False, 115)
-    decrypt_png("cbc_raw.png", "cbc_raw_dec.png", private, "CBC", False, 115)
+    decrypt_png("ecb_raw.png", "ecb_raw_dec.png", private, "ECB", False)
+    decrypt_png("cbc_raw.png", "cbc_raw_dec.png", private, "CBC", False)
 
     # TEST BIBLIOTECZNEGO RSA
     library_rsa_png_demo(INPUT)
