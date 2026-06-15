@@ -445,21 +445,21 @@ def library_rsa_png_demo(input_png):
     print("Rozmiar szyfrogramu:", len(ciphertext))
 
     # zapis obrazu szyfrogramu
-
+    bpp = 4 if mode == "RGBA" else 3
     width = size[0]
 
     height = math.ceil(
-        len(ciphertext) / (3 * width)
+        len(ciphertext) / (bpp * width)
     )
 
-    needed = width * height * 3
+    needed = width * height * bpp
 
     padded = ciphertext + b"\x00" * (
         needed - len(ciphertext)
     )
 
     cipher_img = Image.frombytes(
-        "RGB",
+        mode,
         (width, height),
         padded
     )
